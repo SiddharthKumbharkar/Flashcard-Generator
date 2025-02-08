@@ -1,6 +1,7 @@
 import streamlit as st
 import pdfplumber
 import google.generativeai as genai
+import webbrowser
 
 # Configure Gemini API
 API_KEY = "AIzaSyB7_NrE5fs9CK9vUIrHwFGit--pLM58Opg"  # Replace with your actual API key
@@ -43,6 +44,10 @@ def generate_flashcards(content, num_cards):
 # Streamlit UI
 st.title("🃏 AI Flashcard Generator")
 st.write("Generate flashcards from uploaded notes (PDF) or enter a topic.")
+
+# Back Button to go to a custom URL
+if st.button("🔙 Back"):
+    webbrowser.open_new_tab("https://yourwebsite.com")  # Replace with your desired URL
 
 # Flashcard generation option
 option = st.radio("Select an option:", ["Upload Notes (PDF)", "Enter Topic Manually"])
